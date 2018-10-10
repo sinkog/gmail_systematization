@@ -53,7 +53,7 @@ function action(label) {
     Logger.log("delete: "+query);
     var threads = GmailApp.search(query);
     Logger.log("found " + threads.length + " threads:");
-    for(var i = 0; i <= Math.floor(threads.length/100); i++) {
+    for(var i = 0; i <= Math.ceil(threads.length/100); i++) {
       var this_batch_size = Math.min(threads.length, 100);
       var this_batch = threads.splice(0,this_batch_size);
       GmailApp.moveThreadsToTrash(this_batch);
@@ -64,7 +64,7 @@ function action(label) {
     Logger.log("archive: "+query);
     var threads = GmailApp.search(query);
     Logger.log("found " + threads.length + " threads:");
-    for(var i = 0; i <= Math.floor(threads.length/100); i++) {
+    for(var i = 0; i <= Math.ceil(threads.length/100); i++) {
       var this_batch_size = Math.min(threads.length, 100);
       var this_batch = threads.splice(0, this_batch_size);
       GmailApp.moveThreadsToArchive(this_batch);
@@ -75,7 +75,7 @@ function action(label) {
     Logger.log("archive: "+query);
     var threads = GmailApp.search(query);
     Logger.log("found " + threads.length + " threads:");
-    for(var i = 0; i <= Math.floor(threads.length/100); i++) {
+    for(var i = 0; i <= Math.ceil(threads.length/100); i++) {
       var this_batch_size = Math.min(threads.length, 100);
       var this_batch = threads.splice(0, this_batch_size);
       GmailApp.moveThreadsToImportant(this_batch);
